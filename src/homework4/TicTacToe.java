@@ -122,6 +122,151 @@ public class TicTacToe {
 
     private static void aiTurn() {
         System.out.println("Ход компьютера:");
+        int count;
+        for (int i = 0; i < SIZE; i++) {
+            count = 0;
+            for (int j = 0; j < SIZE; j++) {
+                if (map[i][j] == DOT_X) {
+                    count++;
+                    if (count == 2) {
+                        if (j + 2 < SIZE) {
+                            if (map[i][j + 1] == DOT_EMPTY && map[i][j + 2] == DOT_X) {
+                                map[i][j + 1] = DOT_O;
+                                showMap();
+                                return;
+                            }
+                        }
+                        if (j - 3 >= 0) {
+                            if (map[i][j - 2] == DOT_EMPTY && map[i][j - 3] == DOT_X) {
+                                map[i][j - 2] = DOT_O;
+                                showMap();
+                                return;
+                            }
+                        }
+                    }
+                    if (count == 3) {
+                        if (isCellValid(i, j + 1)) {
+                            map[i][j + 1] = DOT_O;
+                            showMap();
+                            return;
+                        } else if (isCellValid(i, j - 3)) {
+                            map[i][j - 3] = DOT_O;
+                            showMap();
+                            return;
+                        }
+                    }
+                } else
+                    count = 0;
+            }
+        }
+        for (int i = 0; i < SIZE; i++) {
+            count = 0;
+            for (int j = 0; j < SIZE; j++) {
+                if (map[j][i] == DOT_X) {
+                    count++;
+                    if (count == 2) {
+                        if (j + 2 < SIZE) {
+                            if (map[j + 1][i] == DOT_EMPTY && map[j + 2][i] == DOT_X) {
+                                map[j + 1][i] = DOT_O;
+                                showMap();
+                                return;
+                            }
+                        }
+                        if (j - 3 >= 0) {
+                            if (map[j - 2][i] == DOT_EMPTY && map[j - 3][i] == DOT_X) {
+                                map[j - 2][i] = DOT_O;
+                                showMap();
+                                return;
+                            }
+                        }
+                    }
+                    if (count == 3) {
+                        if (isCellValid(j + 1, i)) {
+                            map[j + 1][i] = DOT_O;
+                            showMap();
+                            return;
+                        } else if (isCellValid(j - 3, i)) {
+                            map[j - 3][i] = DOT_O;
+                            showMap();
+                            return;
+                        }
+                    }
+                } else
+                    count = 0;
+            }
+        }
+        count = 0;
+        for (int i = 0; i < SIZE; i++) {
+            if (map[i][i] == DOT_X) {
+                count++;
+                if (count == 2) {
+                    if (i + 2 < SIZE) {
+                        if (map[i + 1][i + 1] == DOT_EMPTY && map[i + 2][i + 2] == DOT_X) {
+                            map[i + 1][i + 1] = DOT_O;
+                            showMap();
+                            return;
+                        }
+                    }
+                    if (i - 3 >= 0) {
+                        if (map[i - 2][i - 2] == DOT_EMPTY && map[i - 3][i - 3] == DOT_X) {
+                            map[i - 2][i - 2] = DOT_O;
+                            showMap();
+                            return;
+                        }
+                    }
+                }
+                if (count == 3) {
+                    if (isCellValid(i + 1, i + 1)) {
+                        map[i + 1][i + 1] = DOT_O;
+                        showMap();
+                        return;
+                    } else if (isCellValid(i - 3, i - 3)) {
+                        map[i - 3][i - 3] = DOT_O;
+                        showMap();
+                        return;
+                    }
+                }
+            } else
+                count = 0;
+        }
+        count = 0;
+        for (int i = 0; i < SIZE; i++) {
+            if (map[i][SIZE-1-i] == DOT_X) {
+                count++;
+                if (count == 2) {
+                    if (i + 2 < SIZE) {
+                        if (map[i + 1][SIZE-2-i] == DOT_EMPTY && map[i + 2][SIZE-2-i] == DOT_X) {
+                            map[i + 1][SIZE-2-i] = DOT_O;
+                            showMap();
+                            return;
+                        }
+                    }
+                    if (i - 3 >= 0) {
+                        if (map[i - 2][SIZE+1-i] == DOT_EMPTY && map[i - 3][SIZE+2-i] == DOT_X) {
+                            map[i - 2][SIZE+1-i] = DOT_O;
+                            showMap();
+                            return;
+                        }
+                    }
+                }
+                if (count == 3) {
+                    if (isCellValid(i + 1, SIZE-2-i)) {
+                        map[i + 1][SIZE-2-i] = DOT_O;
+                        showMap();
+                        return;
+                    } else if (isCellValid(i - 3, SIZE+2-i)) {
+                        map[i - 3][SIZE+2-i] = DOT_O;
+                        showMap();
+                        return;
+                    }
+                }
+            } else
+                count = 0;
+        }
+        randTurn();
+    }
+
+    private static void randTurn() {
         int rowNum, colNum;
         do {
             rowNum = (int) (Math.random() * SIZE);
@@ -130,6 +275,7 @@ public class TicTacToe {
         map[rowNum][colNum] = DOT_O;
         showMap();
     }
+
 
     private static void humanTurn() {
         int rowNum, colNum;
@@ -179,4 +325,3 @@ public class TicTacToe {
             Arrays.fill(map[i], DOT_EMPTY);
     }
 }
-
