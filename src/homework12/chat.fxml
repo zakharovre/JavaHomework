@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="homework12.Controller">
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+    <SplitPane dividerPositions="0.8" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0"
+               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+               AnchorPane.topAnchor="0.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="475.0" prefWidth="798.0"
+                       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                       AnchorPane.topAnchor="0.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <ListView fx:id="ContactList" prefHeight="473.0" prefWidth="234.0"
+                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <TextArea fx:id="MessagesArea" editable="false" prefHeight="473.0" prefWidth="556.0"
+                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                </AnchorPane>
+            </SplitPane>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <HBox prefHeight="117.0" prefWidth="798.0" spacing="5.0" AnchorPane.bottomAnchor="0.0"
+                  AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <TextField fx:id="TextInput" alignment="TOP_LEFT" prefHeight="120.0" prefWidth="650.0"
+                           promptText="Type your text here"/>
+                <Button fx:id="SendButton" mnemonicParsing="false" prefHeight="120.0" prefWidth="145.0"
+                        style="-fx-background-color: orangered;" text="Send">
+                    <font>
+                        <Font name="Arial Black" size="32.0"/>
+                    </font>
+                </Button>
+            </HBox>
+        </AnchorPane>
+    </SplitPane>
+</AnchorPane>
